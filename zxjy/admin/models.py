@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Base(models.Model):
+class Base(models.Model):诉讼的方式
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
 
