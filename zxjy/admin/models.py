@@ -92,6 +92,81 @@ class MemberOrder(Base):
         db_table = 'memberorder'
 
 
+# 用户收藏实验问答报告表
+class Collect(Base):
+    user_id = models.IntegerField()  # 关联用户
+    find_id = models.IntegerField()  # 关联实验问答或实验报告
+    collect_tpye = models.IntegerField(default=0)  # 0:实验问答   1：实验报告
+
+    class Meta:
+        db_table = 'collect'
+
+# 课程订单记录表
+class Course_order(Base):
+    order_sn = models.CharField(max_length=200)  # 订单编号
+    user_id = models.IntegerField()             # 关联用户
+    course_id = models.IntegerField()           # 关联课程
+    pay_type = models.IntegerField(default=0)   # 支付方式  0：支付宝 1：微信  2：网银
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=9999999) # 价格
+    pay_price = models.DecimalField(max_digits=10, decimal_places=2, default=9999999)  # 最终价格
+    preferential_way = models.IntegerField(default=0)  # 优惠方式  0：不使用   1：优惠劵   2：积分
+    referential_mone = models.DecimalField(max_digits=7, decimal_places=2, default=9999)  # 优惠金额
+    order_status = models.IntegerField(default=0)  # 订单状态 ：是否评论 0：未评论  1：已评论
+    code = models.CharField(max_length=200)  #  流水号
+    coupon = models.CharField(max_length=200)  # 优惠劵码
+    pay_sattus = models.IntegerField(default=0)  # 支付状态  0:未支付  1：已支付
+
+    class Meta:
+        db_table = 'course_order'
+
+# 积分规则兑换表
+class Rule(Base):
+    ratio = models.FloatField(max_length=100)  #兑换比例
+
+    class Meta:
+        db_table = 'rule'
+
+#  积分记录表
+class Integral_record(Base):
+    user_id = models.IntegerField()  # 关联用户表
+    x_integral = models.IntegerField() # 操作类型 1：加   2：减
+    s_integral  = models.IntegerField() # 操作前积分
+    befrore_integral = models.IntegerField() # 本次操作积分
+    end_integral  = models.IntegerField() # 操作后积分
+    effect = models.IntegerField()  # 积分用途说明  0：抵扣现金  1：兑换优惠劵
+    coupon_code = models.CharField(max_length=200)  # 积分详细说明
+
+    class Meta:
+        db_table = 'integral_record'
+
+# 优惠劵表
+class Coupon(Base):
+    name = models.CharField(max_length=50) # 优惠劵名称，描述
+    count = models.IntegerField()  # 优惠劵数量
+    type = models.IntegerField()  # 类型： 0:首次注册会员  1：通用  2：指定商品  3：指定会员等级
+    course_id = models.IntegerField(null=True)  #类型为2时关联课程
+    start_time = models.DateTimeField(auto_now_add=True) # 创建开始日期
+    end_time = models.DateTimeField() # 创建结束日期
+    status = models.IntegerField(default=0)  # 0:可用  1：过期或停用
+    condition = models.DecimalField(max_digits=7,decimal_places=2,default=9999)  # 减免条件
+    money = models.DecimalField(max_digits=7,decimal_places=2,default=10)  # 优惠劵金额
+
+    class Meta:
+        db_table = 'coupon'
+
+# 用户优惠劵表
+class User_Coupon(Base):
+    user_id = models.IntegerField()  # 关联用户
+    count = models.CharField(max_length=50,unique=True)  # 优惠劵唯一编码
+    start_time = models.DateTimeField(auto_now_add=True)  # 优惠劵开始日期
+    end_time = models.DateTimeField()  # 优惠劵结束日期
+    condition = models.DecimalField(max_digits=7, decimal_places=2, default=9999)  # 减免条件
+    money = models.DecimalField(max_digits=7, decimal_places=2, default=10)  # 优惠劵金额
+    is_use = models.IntegerField(default=0) #是否使用 0：未使用  1：使用
+
+    class Meta:
+        db_table = 'user_coupon'
+
 
 
 #学习记录表
@@ -168,32 +243,7 @@ class Banner(Base,models.Model):
         db_table = 'banner'
 
 
-#活动表
-class Act(Base):
-    title = models.CharField(max_length=50,verbose_name='活动标题')
-    date = models.DateField(verbose_name='活动日期')
-    content = models.TextField(verbose_name='活动内容描述')
 
-    class Meta:
-        db_table = 'act'
-
-#秒杀时间表
-class Time(Base):
-    start = models.DateTimeField(verbose_name='活动开始时间')
-    end = models.DateTimeField(verbose_name='活动结束时间')
-
-    class Meta:
-        db_table = 'time'
-
-#秒杀产品表
-class Sk(Base):
-    act = models.ForeignKey(Act,on_delete=models.CASCADE)
-    time = models.ForeignKey(Time,on_delete=models.CASCADE)
-    course = models.ForeignKey(Course,on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10,decimal_places=2,default=99999999.99,verbose_name='描述价格')
-
-    class Meta:
-        db_table = 'Sk'
 
 
 class Path(Base,models.Model):
@@ -238,7 +288,7 @@ class Course(Base,models.Model):
     member = models.IntegerField(default=0)    #是否会员  0非会员 1会员 2训练营
     attention = models.IntegerField()     #关注数
     learn = models.IntegerField()         #学过人数
-    teacher = models.ForeignKey('teacher',models.CASCADE)
+    teacher = models.ForeignKey('Teacher',models.CASCADE)
     comment_num = models.IntegerField()    #评论数
     path = models.ForeignKey(Path,models.CASCADE)
     tag = models.ForeignKey(Tags,models.CASCADE)
@@ -253,6 +303,7 @@ class Course(Base,models.Model):
 class Section(Base,models.Model):
     course = models.ForeignKey('Course',models.CASCADE)
     section = models.CharField(max_length=50)
+    image = models.CharField(max_length=255)
     video = models.CharField(max_length=220)
     sort = models.IntegerField()   #排序
     class Meta:
@@ -267,12 +318,6 @@ class Price(Base,models.Model):
     discoun_price = models.DecimalField(max_digits=6,decimal_places=2)   #折扣价
     class Meta:
         db_table = 'Price'
-
-
-
-
-
-
 
 
 # 用户关注表
@@ -312,10 +357,31 @@ class Answer(Base, models.Model):
         db_table = 'answer'
 
 
-#  用户和收藏实验问答报告表
-class Collect(Base, models.Model):
-    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)  # 关联用户
-    find_id = models.ForeignKey('Answer', to_field='id', on_delete=models.CASCADE)   # 关联实验问答
-    collect_tpye = models.IntegerField(default=0)  # 收藏类型（0是实验报告/1是实验问答）
+#活动表
+class Act(Base):
+    title = models.CharField(max_length=50,verbose_name='活动标题')
+    date = models.DateField(verbose_name='活动日期')
+    content = models.TextField(verbose_name='活动内容描述')
+
     class Meta:
-        db_table = 'collect'
+        db_table = 'act'
+
+#秒杀时间表
+class Time(Base):
+    start = models.DateTimeField(verbose_name='活动开始时间')
+    end = models.DateTimeField(verbose_name='活动结束时间')
+    act = models.ForeignKey('Act', models.CASCADE)
+
+    class Meta:
+        db_table = 'time'
+
+
+#秒杀产品表
+class Sk(Base):
+    act = models.ForeignKey(Act,on_delete=models.CASCADE)
+    time = models.ForeignKey(Time,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10,decimal_places=2,default=99999999.99,verbose_name='描述价格')
+
+    class Meta:
+        db_table = 'Sk'
