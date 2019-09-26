@@ -189,7 +189,7 @@ class Time(Base):
 class Sk(Base):
     act = models.ForeignKey(Act,on_delete=models.CASCADE)
     time = models.ForeignKey(Time,on_delete=models.CASCADE)
-    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    course = models.ForeignKey('Course',on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10,decimal_places=2,default=99999999.99,verbose_name='描述价格')
 
     class Meta:
