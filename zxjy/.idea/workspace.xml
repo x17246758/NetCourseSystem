@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75f335d2-ff36-4b8e-8b62-31f2e3f1cdfa" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/sadmin/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sadmin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.idea/admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sadmin/views.py" afterDir="false" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
       <change beforePath="$PROJECT_DIR$/zxjy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/zxjy/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zxjy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zxjy/urls.py" afterDir="false" />
     </list>
@@ -32,6 +49,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/zxjy/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
@@ -45,6 +63,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+=======
+        <entry file="file://$PROJECT_DIR$/sadmin/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3188">
+              <caret line="211" column="15" lean-forward="true" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
             </state>
           </provider>
         </entry>
@@ -58,9 +82,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/admin/models.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/sadmin/urls.py" />
         <option value="$PROJECT_DIR$/zxjy/urls.py" />
         <option value="$PROJECT_DIR$/zxjy/settings.py" />
+=======
+        <option value="$PROJECT_DIR$/sadmin/models.py" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
       </list>
     </option>
   </component>
@@ -75,7 +103,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -83,6 +110,7 @@
               <item name="zxjy" type="b2602c69:ProjectViewProjectNode" />
               <item name="zxjy" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="zxjy" type="b2602c69:ProjectViewProjectNode" />
               <item name="zxjy" type="462c0819:PsiDirectoryNode" />
@@ -93,10 +121,13 @@
               <item name="zxjy" type="462c0819:PsiDirectoryNode" />
               <item name="zxjy" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,22 +191,34 @@
       <updated>1569454610354</updated>
       <workItem from="1569454611802" duration="627000" />
       <workItem from="1569487052899" duration="560000" />
+<<<<<<< HEAD
       <workItem from="1569499362242" duration="258000" />
+=======
+      <workItem from="1569497952802" duration="315000" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="1448000" />
+=======
+    <option name="totallyTimeSpent" value="1502000" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1427614" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14008042" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32882884" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -198,6 +241,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/admin/models.py" />
     <entry file="file://$PROJECT_DIR$/sadmin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -220,6 +264,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="108" column="26" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+=======
+    <entry file="file://$PROJECT_DIR$/sadmin/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3188">
+          <caret line="211" column="15" lean-forward="true" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
+>>>>>>> 4acdecc66e9fce8471d7c030b2c86726a3aa2d87
         </state>
       </provider>
     </entry>
