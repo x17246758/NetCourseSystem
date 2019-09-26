@@ -259,3 +259,62 @@ class Price(Base,models.Model):
     discoun_price = models.DecimalField(max_digits=6,decimal_places=2)   #折扣价
     class Meta:
         db_table = 'Price'
+
+
+
+
+
+#  讲师表
+class Teacher(Base, models.Model):
+    name = models.CharField(max_length=10)  # 讲师名称
+    describe = models.CharField(max_length=50)  # 讲师描述
+    pic = models.CharField(max_length=100)  # 讲师头像
+
+    class Meta:
+        db_table = "teacher"
+
+
+# 用户关注表
+class UserTeacher(Base, models.Model):
+    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)  # 关联用户表
+    teacher_id = models.ForeignKey('Teacher', to_field='id', on_delete=models.CASCADE)  # 关联讲师表
+
+    class Meta:
+        db_table = "userteacher"
+
+
+
+# 实验报告表
+class Report(Base, models.Model):
+    section_id = models.ForeignKey('Section', to_field='id', on_delete=models.CASCADE)  # 关联章节表
+    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)  # 关联用户表
+    report_content = models.CharField(max_length=100)  # 报告内容
+    report_title = models.CharField(max_length=20)  # 报告标题
+    report_trowse = models.IntegerField(default=0)  # 实验报告浏览量
+    linknum = models.IntegerField(default=0)  # 点赞数
+    course_id = models.ForeignKey('Course', to_field='id', on_delete=models.CASCADE)  # 关联课程表
+    class Meta:
+        db_table = 'report'
+
+
+# 实验问答表
+class Answer(Base, models.Model):
+    course_id = models.ForeignKey('Course', to_field='id', on_delete=models.CASCADE)  # 关联课程表
+    answer_title = models.CharField(max_length=10)  # 问题标题
+    answer_content = models.CharField(max_length=100)  # 问题内容
+    browse_id = models.IntegerField(default=0)  # 浏览量
+    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)   # 用户表关联
+    pid = models.IntegerField(default=0)  # 上一级评论id
+    top = models.IntegerField(default=0)  # 顶级评论id
+    type_id = models.IntegerField(default=0)  # 自身级别id
+    class Meta:
+        db_table = 'answer'
+
+
+#  用户和收藏实验问答报告表
+class Collect(Base, models.Model):
+    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)  # 关联用户
+    find_id = models.ForeignKey('Answer', to_field='id', on_delete=models.CASCADE)   # 关联实验问答
+    collect_tpye = models.IntegerField(default=0)  # 收藏类型（0是实验报告/1是实验问答）
+    class Meta:
+        db_table = 'collect'
