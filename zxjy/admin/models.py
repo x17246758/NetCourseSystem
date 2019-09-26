@@ -8,7 +8,7 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-class User(models.Model):
+class User(Base):
     pass
 
 
