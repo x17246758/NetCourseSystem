@@ -220,6 +220,14 @@ class Tags(Base,models.Model):
     class Meta():
         db_table = 'Tags'
 
+#  讲师表
+class Teacher(Base, models.Model):
+    name = models.CharField(max_length=10)  # 讲师名称
+    describe = models.CharField(max_length=50)  # 讲师描述
+    pic = models.CharField(max_length=100)  # 讲师头像
+
+    class Meta:
+        db_table = "teacher"
 
 # 课程表
 class Course(Base,models.Model):
@@ -264,14 +272,7 @@ class Price(Base,models.Model):
 
 
 
-#  讲师表
-class Teacher(Base, models.Model):
-    name = models.CharField(max_length=10)  # 讲师名称
-    describe = models.CharField(max_length=50)  # 讲师描述
-    pic = models.CharField(max_length=100)  # 讲师头像
 
-    class Meta:
-        db_table = "teacher"
 
 
 # 用户关注表
