@@ -313,9 +313,9 @@ class Answer(Base, models.Model):
 
 
 #  用户和收藏实验问答报告表
-# class Collect(Base, models.Model):
-#     user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)  # 关联用户
-#     find_id = models.ForeignKey('Answer', to_field='id', on_delete=models.CASCADE)   # 关联实验问答
-#     collect_tpye = models.IntegerField(default=0)  # 收藏类型（0是实验报告/1是实验问答）
-#     class Meta:
-#         db_table = 'collect'
+class Collect(Base, models.Model):
+    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)  # 关联用户
+    find_id = models.ForeignKey('Answer', to_field='id', on_delete=models.CASCADE)   # 关联实验问答
+    collect_tpye = models.IntegerField(default=0)  # 收藏类型（0是实验报告/1是实验问答）
+    class Meta:
+        db_table = 'collect'
