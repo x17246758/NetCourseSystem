@@ -28,11 +28,18 @@ class ThirdPartyLogin(Base):
     login_type = models.IntegerField()
     uid = models.CharField(max_length=30)
 
+    class Meta:
+        db_table = 'thirdpartylogin'
+
 
 # 站内信表
 class SiteMessage(Base):
     title = models.CharField(max_length=30)
     content = models.CharField(max_length=300)
+
+    class Meta:
+        db_table = 'sitemessage'
+
 
 # 用户---站内信表（UserSiteMessage）
 class UserSiteMessage(Base):
@@ -40,15 +47,24 @@ class UserSiteMessage(Base):
     sitemessage = models.ForeignKey('SiteMessage', models.CASCADE)
     status = models.IntegerField()
 
+    class Meta:
+        db_table='usersitemessage'
+
 # 用户等级表
 class UserLevel(Base):
     level = models.CharField(max_length=10)
+
+    class Meta:
+        db_table = 'userlevel'
 
 # 用户等级条件表
 class UserLevelCondition(Base):
     level = models.ForeignKey('UserLevel', models.CASCADE)
     time = models.IntegerField()
     amount = models.DecimalField(max_digits=7, decimal_places=2)
+
+    class Meta:
+        db_table = 'userlevelconditon'
 
 # 有效用户表
 class EffectiveMember(Base):
@@ -57,8 +73,11 @@ class EffectiveMember(Base):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
+    class Meta:
+        db_table = 'effectivemember'
+
 # 会员订单记录表
-class MemberOrder():
+class MemberOrder(Base):
     order_sn = models.CharField(max_length=50)
     user = models.ForeignKey('User', models.CASCADE)
     level = models.IntegerField()
@@ -69,16 +88,21 @@ class MemberOrder():
     pay_type = models.IntegerField()
     code = models.CharField(max_length=50)
 
-# 
+    class Meta:
+        db_table = 'memberorder'
 
-<<<<<<< HEAD
+
+
+
 #学习记录表
 class User_course(Base,models.Model):
     course_id = models.ForeignKey('Course', on_delete=models.CASCADE)   #关联课程一对多
     user_id = models.ForeignKey('User', on_delete=models.CASCADE)       #关联用户一对多
     section_id = models.ForeignKey('Section', on_delete=models.CASCADE) #关联章节一对多
     status = models.IntegerField(default=0)  # 完成状态（0，未完成，1完成）
-=======
+    class Meta:
+        db_table = 'user_course'
+
 #角色表
 class Roles(Base):
     name = models.CharField(max_length=50)
@@ -112,10 +136,8 @@ class Admin(Base):
 
     class Meta:
         db_table = 'admin'
->>>>>>> 8acad9354fadb49694123dcb590c3cc20cf71d49
 
-    class Meta:
-        db_table = 'user_coures'
+
 
 #评论表
 class Comment(Base,models.Model):
@@ -133,7 +155,6 @@ class Comment(Base,models.Model):
         db_table = 'comment'
 
 
-<<<<<<< HEAD
 #焦点图表
 class Banner(Base,models.Model):
     name = models.CharField(max_length=255,name='图片名称')
@@ -145,7 +166,7 @@ class Banner(Base,models.Model):
 
     class Meta:
         db_table = 'banner'
-=======
+
 
 #活动表
 class Act(Base):
@@ -173,7 +194,7 @@ class Sk(Base):
 
     class Meta:
         db_table = 'Sk'
->>>>>>> 8acad9354fadb49694123dcb590c3cc20cf71d49
+
 
 class Path(Base,models.Model):
     pic = models.CharField(max_length=225)
