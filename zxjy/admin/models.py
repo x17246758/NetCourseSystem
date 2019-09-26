@@ -71,6 +71,14 @@ class MemberOrder():
 
 # 
 
+<<<<<<< HEAD
+#学习记录表
+class User_course(Base,models.Model):
+    course_id = models.ForeignKey('Course', on_delete=models.CASCADE)   #关联课程一对多
+    user_id = models.ForeignKey('User', on_delete=models.CASCADE)       #关联用户一对多
+    section_id = models.ForeignKey('Section', on_delete=models.CASCADE) #关联章节一对多
+    status = models.IntegerField(default=0)  # 完成状态（0，未完成，1完成）
+=======
 #角色表
 class Roles(Base):
     name = models.CharField(max_length=50)
@@ -104,9 +112,40 @@ class Admin(Base):
 
     class Meta:
         db_table = 'admin'
+>>>>>>> 8acad9354fadb49694123dcb590c3cc20cf71d49
+
+    class Meta:
+        db_table = 'user_coures'
+
+#评论表
+class Comment(Base,models.Model):
+    content = models.CharField(max_length=255,name='评论内容')
+    pid = models.IntegerField(default=0,name='上级评论id')
+    top_id = models.IntegerField(default=0,name='顶级评论id')
+    type_id = models.IntegerField(default=0,name='自身级别id')
+    user_id = models.ForeignKey('User',on_delete=models.CASCADE)        #用户外键
+    course_id = models.ForeignKey('Course',on_delete=models.CASCADE)    #课程外键
+    comment_type = models.CharField(max_length=100,name='评论类型')
+    status = models.IntegerField(default=0,name='审核状态')              #(0是通过，1是不通过)
+    reason = models.CharField(max_length=255,name='失败原因')
+
+    class Meta:
+        db_table = 'comment'
 
 
+<<<<<<< HEAD
+#焦点图表
+class Banner(Base,models.Model):
+    name = models.CharField(max_length=255,name='图片名称')
+    pic = models.CharField(max_length=255,name='图片')          
+    url = models.CharField(max_length=255,name='跳转链接')      #点击图片跳转链接
+    type = models.IntegerField(default=1,name='类型')           #(1，首页，2课程，3路径，4训练营)
+    is_show = models.IntegerField(default=1,name='是否显示')    #(1,显示，2,不显示)
+    sort = models.IntegerField(default=1,name='排序')       
 
+    class Meta:
+        db_table = 'banner'
+=======
 
 #活动表
 class Act(Base):
@@ -134,3 +173,68 @@ class Sk(Base):
 
     class Meta:
         db_table = 'Sk'
+>>>>>>> 8acad9354fadb49694123dcb590c3cc20cf71d49
+
+class Path(Base,models.Model):
+    pic = models.CharField(max_length=225)
+    path = models.CharField(max_length=50)
+    info = models.CharField(max_length=220)
+    studynum = models.IntegerField()
+    class Meta:
+        db_table = 'Path'
+
+
+# 阶段表
+class Path_stage(Base,models.Model):
+    stage_name = models.CharField(max_length=100)
+    path = models.ForeignKey(Path,models.CASCADE)
+    sort = models.IntegerField()
+    class Meta():
+        db_table = 'Path_stage'
+
+
+#课程标签
+class Tags(Base,models.Model):
+    name = models.CharField(max_length=50)
+    class Meta():
+        db_table = 'Tags'
+
+
+# 课程表
+class Course(Base,models.Model):
+    title = models.CharField(max_length=50)
+    pic = models.CharField(max_length=220)
+    info = models.CharField(max_length=220)
+    omline = models.IntegerField(default=0)    #是否上线  0没上线 1上线
+    member = models.IntegerField(default=0)    #是否会员  0非会员 1会员 2训练营
+    attention = models.IntegerField()     #关注数
+    learn = models.IntegerField()         #学过人数
+    teacher = models.ForeignKey('teacher',models.CASCADE)
+    comment_num = models.IntegerField()    #评论数
+    path = models.ForeignKey(Path,models.CASCADE)
+    tag = models.ForeignKey(Tags,models.CASCADE)
+    recommand = models.CharField()         #课程推荐
+    detail = models.CharField()
+    section_num = models.IntegerField()    #章节数
+    class Meta:
+        db_table = 'Course'
+
+
+#章节表
+class Section(Base,models.Model):
+    course = models.ForeignKey('Course',models.CASCADE)
+    section = models.CharField(max_length=50)
+    video = models.CharField(max_length=220)
+    sort = models.IntegerField()   #排序
+    class Meta:
+        db_table = 'Section'
+
+
+# 价格表
+class Price(Base,models.Model):
+    type = models.IntegerField()    #（普通/会员/高级会员）
+    course = models.ForeignKey(Course,models.CASCADE)
+    discount = models.FloatField()       #折扣
+    discoun_price = models.DecimalField(max_digits=6,decimal_places=2)   #折扣价
+    class Meta:
+        db_table = 'Price'
