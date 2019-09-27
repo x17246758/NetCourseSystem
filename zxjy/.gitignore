@@ -1,0 +1,19 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+#Director
+
+
+.idea/zxjy.iml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+*/__pycache__/
+zxjy/__pycache__
+teachingplatform/__pycache__
+untils/__pycache__
+shiyanlou/migrations/__pycache__
