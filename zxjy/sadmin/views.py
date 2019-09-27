@@ -3,7 +3,7 @@ from rest_framework.views import APIView,Response
 # Create your views here.
 from sadmin.serializers import *
 
-#<QueryDict: {'id': ['1'], 'level': ['1'], 'time': ['5'], 'amount': ['50']}>
+
 #用户等级条件表
 class UserLevelCondition(APIView):
     def post(self,request):
